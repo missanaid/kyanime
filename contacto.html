@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" class="container-bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/contactStyle.css" />
+
+    <title>Kyanime - Tu Página de Anime Favorita</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #2e2e2e; font-size: 20px"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="img-fluid d-none d-lg-block" src="img/logo.png" alt="" />
+          <img class="img-fluid d-lg-none" src="img/logo4.png" alt="" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="galeria.html">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-6 pt-3">
+          <h2>Contactanos</h2>
+          <p>Envíe su mensaje a continuación.</p>
+          <form name="mensaje">
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="message"> Mensaje:</label>
+                <textarea
+                  class="form-control"
+                  type="textarea"
+                  id="message"
+                  name="message"
+                  maxlength="7000"
+                  rows="7"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <label for="name"> Tu nombre</label>
+                <input type="text" class="form-control" id="nom" name="nom" />
+              </div>
+              <div class="col-sm-6 form-group">
+                <label for="email"> Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                />
+              </div>
+              <div class="form-group row ">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  <button id="enviar" type="button" class="btn">Enviar &rarr;</button>
+             
+  
+                </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+
+      document.getElementById("enviar").addEventListener("click", Validacion);
+
+      function Validacion() {
+        nom = document.getElementById("nom").value;
+        email = document.getElementById("email").value;
+        message = document.getElementById("message").value;
+        document.getElementById('message').value="";
+        document.getElementById('email').value="";
+        document.getElementById('nom').value="";
+
+        if (message == null || message.length == 0) {
+          alert('Error! Debe completar el campo "Mensaje"');
+          document.mensaje.message.focus();
+          document.getElementById('message').value="";
+          return false;
+        }
+
+        if (nom == null || nom.length == 0 || /^\s+$/.test(nom)) {
+          alert("Error! Debe ingresar un nombre válido");
+          document.mensaje.nom.focus();
+          document.getElementById('nom').value="";
+          return false;
+        }
+        if (
+          email == null ||
+          email.length == 0 ) 
+        {
+          alert("Error! Debe ingresar un email válido");
+          document.mensaje.email.focus();
+          document.getElementById('email').value="";
+          return false;
+        }
+        return alert("Su mensaje se ha enviado correctamente!");
+        
+      }
+
+    </script>
+  </body>
+</html>
